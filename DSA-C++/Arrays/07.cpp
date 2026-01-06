@@ -60,7 +60,7 @@ public:
         count1 = 0, count2 = 0;
         for(int i = 0; i < n; i++){
             if(elem1 == nums[i]) count1++;
-            if(elem2 == nums[i]) count2++;
+            else if(elem2 == nums[i]) count2++;
         }
 
         if(count1 >= (n/3)+1) ans.push_back(elem1);
