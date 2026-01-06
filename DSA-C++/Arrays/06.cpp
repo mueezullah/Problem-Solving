@@ -35,7 +35,7 @@ public:
             if(count == 0){
                 elem = nums[i];
             }
-            if(nums[i] == elem) {
+            else if(nums[i] == elem) {
                 count++;
             } else {
                 count--;
