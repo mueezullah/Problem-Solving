@@ -56,6 +56,7 @@ public:
                 count1--, count2--;
             }
         }
+        
         // verify moore's algo
         count1 = 0, count2 = 0;
         for(int i = 0; i < n; i++){
