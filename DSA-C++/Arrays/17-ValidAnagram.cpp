@@ -22,13 +22,29 @@ public:
         // }
         // return countS == countT;
 
-        // APPROACH 3 (One Map) -> if character set is unknown
-        unordered_map<char,int> count;
-        for(char c : s) count[c]++;
-        for(char c : t) count[c]--;
+        // APPROACH 3 (1 Map) if character set is unknown (upper + lowercase + symbols etc)
+        // unordered_map<char,int> count;
+        // for(char c : s) count[c]++;
+        // for(char c : t) count[c]--;
 
-        for(auto temp : count){
-            if(temp.second != 0) return false;
+        // for(auto temp : count){
+        //     if(temp.second != 0) return false;
+        // }
+        // return true;
+
+        // APPROACH 4 (1 Array) if only lower english letters
+        if(s.size() != t.size()){
+             return false;
+        }
+
+        int freq[26] = {0};
+        for(char c : s) freq[c - 'a']++;
+        for(char c : t) freq[c - 'a']--;
+
+        for(int i = 0; i < 26; i++){
+            if(freq[i] != 0){
+                return false;
+            }
         }
         return true;
     }
