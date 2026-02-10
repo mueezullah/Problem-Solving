@@ -1,7 +1,9 @@
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
-        // APPROACH 1 (Brute force) Gives TLE
+        // APPROACH 1 (Brute force)
+        // TC -> O(n^2)
+        // SC -> O(1)
         // int n = nums.size();
         // int maxi = INT_MIN;
 
@@ -11,15 +13,13 @@ public:
 
         //         product *= nums[j];
         //         maxi = max(maxi, product);
-
-        //         if(product == 0){
-        //             break;
-        //         }
         //     }
         // }
         // return maxi;
 
-        // APPROACH 2
+        // APPROACH 2 (Prefix -> left to right + Suffix -> right to left) TWo passes
+        // TC -> O(n)
+        // SC -> O(1)
         // int n = nums.size();
         // int product = 1;
         // int maxi = INT_MIN;
@@ -44,7 +44,9 @@ public:
 
         // return maxi;
 
-        // APPROACH 3
+        // APPROACH 3 (Prefix, Suffix) Single Pass
+        // TC -> O(n)
+        // SC -> O(1)
         int pre = 1, suff = 1;
         int n = nums.size();
         int maxi = INT_MIN;
@@ -60,8 +62,9 @@ public:
 
             pre *= nums[i];
             suff *= nums[n - i - 1];
-
-            maxi = max(maxi, max(pre, suff));
+            
+            int PreSuffMax = max(pre, suff);
+            maxi = max(maxi, PreSuffMax);
         }
         return maxi;
     }
