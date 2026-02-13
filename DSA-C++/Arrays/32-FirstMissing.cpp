@@ -7,7 +7,7 @@ public:
         // SC -> O(n)
         // unordered_map<int, bool> map;
         // // Step 1: Initialize map with false
-        // for(int i = 1; i <= n+1; i++){
+        // for(int i = 1; i < n+1; i++){
         //     map[i] = false;
         // }
         // // Step 2: Compare elements with map indices
@@ -17,7 +17,7 @@ public:
         //     }
         // }
         // // Step 3: Find first index that is still false
-        // for(int i = 1; i <= n+1; i++){
+        // for(int i = 1; i < n+1; i++){
         //     if(map[i] == false){
         //         return i;
         //     }
@@ -25,7 +25,7 @@ public:
 
         // return n + 1;
 
-        // APPROACH 2 (In-place index-hashing)
+        // APPROACH 2 (Cyclic Sort / Index Placement Technique)
         // TC -> O(n)
         // SC -> O(1)
         // Place numbers in correct positions
