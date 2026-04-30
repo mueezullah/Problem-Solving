@@ -1,50 +1,58 @@
 class Solution {
 public:
-    bool isPowerOfThree(int n) {
-        // APPROACH 1 (Iterative Division)
-        // TC -> O(log₃ n)
+    bool isPowerOfFour(int n) {
+        // APPROACH 1 (Iterative)
+        // TC -> O(log₄ n)
         // SC -> O(1)
 
-        // if(n <= 0) 
+        // if (n <= 0)
         //     return false;
         
-        // while(n % 3 == 0){
-        //     n /= 3;
+        // while(n % 4 <= 0){
+        //     n /= 4;
         // }
+
         // return n == 1;
 
-        // APPROACH 2 (Recursion)
-        // TC -> O(log₃ n)
-        // SC -> O(log₃ n)
+        // APPROACH 2 (Recursive)
+        // TC -> O(log₄ n)
+        // SC -> O(log₄ n)
 
         // if(n <= 0)
         //     return false;
-        
+
         // if(n == 1)
         //     return true;
 
-        // if(n % 3 != 0)
+        // if(n % 4 != 0)
         //     return false;
+        
+        // return isPowerOfFour(n / 4);
 
-        // return isPowerOfThree(n / 3);
-
-        // APPROACH 3 (Logarithm Math)
-        // If n is a power of 3, then log₃(n) must be a perfect integer (no decimals)
+        // APPROACH 3 (Logarithm maths)
         // TC -> O(1)
         // SC -> O(1)
 
         // if(n <= 0)
         //     return false;
 
-        // double x = log10(n) / log10(3);
+        // double x = (log(n) / log(4));   // compute log base 4 of n
 
-        // return x == (int)x;
+        // if(pow(4, round(x)) == n)
+        //     return true;
 
-        // APPROACH 4 (Bit Manipulation)
+        // return false;
+
+        // APPROACH 4 (Bit Magic)
         // TC -> O(1)
         // SC -> O(1)
 
+        if(n <= 0)
+            return false;
 
-        return (n > 0) && (1162261467 % n == 0);
+        bool pow2 = (n & (n - 1)) == 0;
+        bool evenBit = (n - 1) % 3 == 0;
+
+        return pow2 && evenBit;
     }
 };
