@@ -36,7 +36,7 @@ public:
         while(right < n){
 
             freq[s[right] - 'a']++;
-
+ 
             while(freq[0] > 0 && freq[1] > 0 && freq[2] > 0){
                 
                 result += (n - right);
